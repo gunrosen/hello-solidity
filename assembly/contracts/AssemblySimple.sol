@@ -16,7 +16,7 @@ contract AssemblySimple {
         // Add some code here
             let result := add(x, y)
             mstore(0x0, result)
-            return(0x0, 32)
+            return (0x0, 32)
         }
     }
 
@@ -24,5 +24,21 @@ contract AssemblySimple {
         return x + y;
     }
 
+    function add(uint x, uint y) public pure returns (uint) {
+        assembly{
+            let result := add(x, y)   // x+ y
+            mstore(0x0, result)
+            return (0x0, 32)
+        }
+    }
 
+    function exponentialFunction(uint n, uint value) public pure returns (uint) {
+        assembly{
+            for {let i := 0} lt(i, n) {i := add(i, 1)} {
+                value := mul(2, value)
+            }
+            mstore(0x0, value)
+            return (0x0, 32)
+        }
+    }
 }

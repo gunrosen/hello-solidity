@@ -14,6 +14,12 @@ describe("Assembly Test", function () {
     return { assemblySimple, owner, otherAccount };
   }
 
+  describe("add", function () {
+    it("Should add correctly", async function () {
+      const { assemblySimple } = await loadFixture(deployAssembly);
+      expect(await assemblySimple.add(5,6)).to.equal(11);
+    });
+  })
 
   describe("addAssembly", function () {
     it("Should add correctly", async function () {
@@ -28,4 +34,12 @@ describe("Assembly Test", function () {
       expect(await assemblySimple.addSolidity(5,6)).to.equal(11);
     });
   })
+
+  describe("exponentialFunction", function () {
+    it("Should exponentialFunction correctly", async function () {
+      const { assemblySimple } = await loadFixture(deployAssembly);
+      expect(await assemblySimple.exponentialFunction(5,6)).to.equal(192);
+    });
+  })
+
 })

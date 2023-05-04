@@ -36,3 +36,9 @@ codesize, codecopy: enable you to read/copy the bytecode of contract we are curr
 ```
 extcodesize, extcodecopy: enable read/copy bytecode of another external contract from a contract
 ```
+
+string literals can be up to 32 characters.
+![img2.png](img/img2.png)
+
+Accessing variables in Solidity Assembly
+You can access local variables (or other identifiers) simply by using their variable name. The variables must be local to the function
