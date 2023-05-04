@@ -42,3 +42,5 @@ string literals can be up to 32 characters.
 
 Accessing variables in Solidity Assembly
 You can access local variables (or other identifiers) simply by using their variable name. The variables must be local to the function
+
+If - no else

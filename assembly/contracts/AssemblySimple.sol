@@ -41,4 +41,15 @@ contract AssemblySimple {
             return (0x0, 32)
         }
     }
+
+    function test1(uint a, uint b) public pure returns (uint) {
+        assembly {
+            function my_assembly_function(param1, param2) -> my_result {
+                my_result := sub(param1, mul(4, param2))
+            }
+            let result := my_assembly_function(a, b)
+            mstore(0x0, result)
+            return (0x0, 32)
+        }
+    }
 }

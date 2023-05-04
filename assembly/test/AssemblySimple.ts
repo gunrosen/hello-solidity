@@ -42,4 +42,18 @@ describe("Assembly Test", function () {
     });
   })
 
+  describe("test1", function () {
+    it("Should test1 incorrectly", async function () {
+      const { assemblySimple } = await loadFixture(deployAssembly);
+      expect(await assemblySimple.test1(9,2)).not.to.equal(2);
+    });
+
+    it("Should test1 correctly", async function () {
+      const { assemblySimple } = await loadFixture(deployAssembly);
+      expect((await assemblySimple.test1(9,2)).toNumber()).to.equal(1);
+    });
+  })
+
+
+
 })
