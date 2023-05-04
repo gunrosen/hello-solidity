@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
+import  "./GetCode.sol";
 // The language used for inline assembly in Solidity is called Yul
 // https://docs.soliditylang.org/en/v0.8.19/yul.html#yul
 
@@ -51,5 +52,9 @@ contract AssemblySimple {
             mstore(0x0, result)
             return (0x0, 32)
         }
+    }
+
+    function getCode (address c) public view returns (bytes memory) {
+        return GetCode.at(c);
     }
 }

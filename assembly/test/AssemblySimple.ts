@@ -8,8 +8,17 @@ describe("Assembly Test", function () {
 
     const [owner, otherAccount] = await ethers.getSigners();
 
-    const AssemblySimple = await ethers.getContractFactory("AssemblySimple");
+    const lib = await ethers.getContractFactory("GetCode");
+    const libInstance = await lib.deploy();
+    await libInstance.deployed();
+
+    const AssemblySimple = await ethers.getContractFactory("AssemblySimple", {
+      libraries:{
+        GetCode: libInstance.address
+      }
+    });
     const assemblySimple = await AssemblySimple.deploy();
+    await assemblySimple.deployed();
 
     return { assemblySimple, owner, otherAccount };
   }
@@ -51,6 +60,11 @@ describe("Assembly Test", function () {
     it("Should test1 correctly", async function () {
       const { assemblySimple } = await loadFixture(deployAssembly);
       expect((await assemblySimple.test1(9,2)).toNumber()).to.equal(1);
+    });
+
+    it("Test read code", async function () {
+      const { assemblySimple } = await loadFixture(deployAssembly);
+      console.log(await assemblySimple.getCode(assemblySimple.address))
     });
   })
 
