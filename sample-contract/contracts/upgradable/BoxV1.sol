@@ -6,8 +6,11 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 contract BoxV1 is Initializable {
     uint256 public x;
 
-    function initialize(uint256 _x) public initializer {
+    function __Box_init(uint256 _x) public initializer {
         x = _x;
     }
 
+    function sum() public view returns(uint256) {
+        return x;
+    }
 }
