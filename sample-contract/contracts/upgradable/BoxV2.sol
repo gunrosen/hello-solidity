@@ -12,8 +12,8 @@ contract BoxV2 is Initializable {
         y = _x;
     }
 
-    function sum() public view returns (uint256) {
-        return x + y;
+    function sum() public pure returns (uint256) {
+        return 99;
     }
 
     function reveal() public pure returns (string memory) {
