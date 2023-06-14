@@ -20,6 +20,7 @@ If receiver is a contract, 02 options for him
 
 * Use function `safeTransferFrom(address from, address to, uint256 tokenId)` or `safeTransferFrom(address from, address to, uint256 tokenId, bytes memory _data)`, this contract must implement function `onERC721Received()`
 
+The purpose of this function is to ensure NFT appearance in the contract. Contract will use NFT and NFT will not be locked in contract
 ```solidity
 function onERC721Received(
                 address,
