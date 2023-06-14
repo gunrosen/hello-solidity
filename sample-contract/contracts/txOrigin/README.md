@@ -1,0 +1,2 @@
+###  tx.origin is different from msg.sender
+* If you call the function from a contract A, in the function that calls the function of contract B, then tx.origin is your address and msg.sender is contract A address
