@@ -26,7 +26,9 @@ Dynamic array will create new slot, slot stores length of array, value of item s
 
 Mapping will crete one new slot, value stores in other location
 
-String will create new slot, this slot store length and content of string
+String will create new slot, this slot store length and content of string.
+- If string less than 32 bytes, content store in bit left -> right (higher order). Length stores in bit right -> left (lower order) with value `length*2` (means number of hex character)
+- If string more than 32 bytes, main slot will store length of string `length * 2 + 1`. Content store at `keccak256(p)` p is location main slot
 
 The smallest data structure takes 8 bits
 
