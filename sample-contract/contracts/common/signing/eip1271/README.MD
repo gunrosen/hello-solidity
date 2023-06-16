@@ -24,7 +24,7 @@ Or
 ```text
 You want to logging into a dapp using the smart contract.
 ```
-![img.png](img.png)
+![img.png](contracts/common/signing/eip1271/img.png)
 
 ### Implementation
 

@@ -21,7 +21,7 @@ The following is prepended before hashing in personal_sign:
 ```
 
 ### Version byte
-![img.png](img.png)
+![img.png](contracts/common/signing/eip191/img.png)
 
 Version `0x00`
 ```text
