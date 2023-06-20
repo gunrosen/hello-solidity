@@ -30,6 +30,10 @@ String will create new slot, this slot store length and content of string.
 - If string less than 32 bytes, content store in bit left -> right (higher order). Length stores in bit right -> left (lower order) with value `length*2` (means number of hex character)
 - If string more than 32 bytes, main slot will store length of string `length * 2 + 1`. Content store at `keccak256(p)` p is location main slot
 
+`constant` not store in storage
+
+`EVM` processes each block of 32 bytes each calculation, so if component less than 32 bytes, EVM need a step to down size from 
+
 The smallest data structure takes 8 bits
 
 > keccak256 is web3.sha3
