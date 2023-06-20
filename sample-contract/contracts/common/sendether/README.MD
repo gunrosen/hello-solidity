@@ -22,3 +22,10 @@ If `call` failes, `sent = false`
 
 Problem of re-entrancy comes because if not limit gas fee. Otherwise, `send` specifies 2300 gas to perform transaction.
 That means `call` with unlimited transaction gas fee, so it can call multiple until account balance becomes 0
+
+### Note call any function
+Call with specific function, use function signature and pass data. Strong point is can know this function runs fail or not.
+
+```solidity
+ address(level13).call{gas: i + (8191 * 3)}(abi.encodeWithSignature("enter(bytes8)", _gateKey));
+```
