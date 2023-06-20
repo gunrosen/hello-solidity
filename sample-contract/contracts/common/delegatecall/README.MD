@@ -39,3 +39,8 @@ const bytesData = web3.utils.sha3("functionName(uint, uint)").slice(0, 10) // Ge
 await contract.sendTransaction({data: bytesData})
 
 ```
+
+### Note
+Be aware dangerous when use `delegatecall`
+
+Another contract with the same order of variables can get delegation and  update each variable corresponding
