@@ -27,5 +27,5 @@ That means `call` with unlimited transaction gas fee, so it can call multiple un
 Call with specific function, use function signature and pass data. Strong point is can know this function runs fail or not.
 
 ```solidity
- address(level13).call{gas: i + (8191 * 3)}(abi.encodeWithSignature("enter(bytes8)", _gateKey));
+ (bool success, ) = address(level13).call{gas: i + (8191 * 3)}(abi.encodeWithSignature("enter(bytes8)", _gateKey));
 ```
