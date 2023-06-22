@@ -16,7 +16,7 @@ web3.eth.getStorageAt(<address>, <data index location>, (err, result) => console
 ### Storage
 Storage has 2^256 slots
 
-Each slot have 256 bits or 32 bytes
+Each slot have 256 bits or 32 bytes. So subtract 1 from 0 will get underflow, and get (2 ^ 256 -1) 
 
 Struct {} will create new slot 
 
