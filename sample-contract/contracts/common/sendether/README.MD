@@ -14,14 +14,14 @@ Consumes 2300 gas and send amount of Ether from the caller to `receiverAddress`.
 Send is low-level of `transfer`. But if execution fails, the current contract will not stop with an exception, but return `false`
 
 #### 3. (bool sent, bytes memory data) = receiverAddress.call{value: amount}("");
-It is low-level function with alot flexibility but introduces also numberous possible problems like re-entrancy
+It is low-level function with a lot flexibility but introduces also numberous possible problems like re-entrancy
 
-By default, `call` forwards the whole gas if you don't specify it
+By default, `call` forwards the whole gas if you don't specify it. While `transfer()` and `send()` only forward 2300 gas
 
-If `call` failes, `sent = false`
+If `call` fails, `sent = false`. `bytes memory data` which contains the return value - return value of the external calls are not checked anywhere
 
 Problem of re-entrancy comes because if not limit gas fee. Otherwise, `send` specifies 2300 gas to perform transaction.
-That means `call` with unlimited transaction gas fee, so it can call multiple until account balance becomes 0
+That means `call` with unlimited transaction gas fee, so it can call multiple until account balance becomes 0.
 
 ### Note call any function
 Call with specific function, use function signature and pass data. Strong point is can know this function runs fail or not.
