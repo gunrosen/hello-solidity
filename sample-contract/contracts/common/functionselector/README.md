@@ -43,5 +43,13 @@ CALL sam("dave", true, [1,2,3])
 we would pass 292 bytes
 0xa5643bf2  METHOD_ID 4 bytes signature of `sam(bytes,bool,uint256[])` unit replaced by uint256
 
-0x0000000000000000000000000000000000000000000000000000000000000060   location of the data part of the first parameter (dynamic type)  measured in bytes from the start
+0x0000000000000000000000000000000000000000000000000000000000000060   location of the data part of the first parameter (dynamic type)  measured in bytes from the start of the arguments block. In this case, 0x60.
+0x0000000000000000000000000000000000000000000000000000000000000001   true
+0x00000000000000000000000000000000000000000000000000000000000000a0   the location of the data part of the third parameter (dynamic type), measured in bytes. In this case, 0xa0.
+0x0000000000000000000000000000000000000000000000000000000000000004   the data part of the first argument, it starts with the length of the byte array in elements, in this case, 4 ("dave".length)
+0x6461766500000000000000000000000000000000000000000000000000000000   encoding of "dave", padded on the right to 32 bytes.
+0x0000000000000000000000000000000000000000000000000000000000000003   the data part of the third argument, it starts with the length of the array in elements, in this case, 3. ([1,2,3].length)
+0x0000000000000000000000000000000000000000000000000000000000000001   the first entry of the third parameter.
+0x0000000000000000000000000000000000000000000000000000000000000002
+0x0000000000000000000000000000000000000000000000000000000000000003
 ```
