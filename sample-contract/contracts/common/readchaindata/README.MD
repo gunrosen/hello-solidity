@@ -32,6 +32,12 @@ String will create new slot, this slot store length and content of string.
 
 `constant` not store in storage
 
+byteN is fixed size arrays
+
+bytes is dynamic arrays
+
+
+
 `EVM` processes each block of 32 bytes each calculation, so if component less than 32 bytes, EVM need a step to down size from 
 
 The smallest data structure takes 8 bits
@@ -144,4 +150,22 @@ contract StorageTest {
 Slot 7: f 
 Slot keccak256(hex(162) + hex(7)): f[162]
 Slot keccak256(hex(789) + hex(7)): f[789]
+```
+
+**Example 5**
+```solidity
+contract StorageTest {
+  bytes8 public a = "there is"; // 8 chars  -> 8 byte slot 0
+  bytes1 public b = "a"; // 1 char -> 1 byte slot 0
+  bytes32 public c = "big different"; // 13 chars  -> 32 byte slot 1
+  string public d = " between"; // 7 chars  -> slot 2
+  string public e = "knowing something"; // 17 chars  -> slot 3 
+  string public f = "and knowing the name of something"; // 33 chars 
+}
+```
+
+...
+Slot 4: because f.length > 32, value is `length * 2 + 1 = 67`
+Slot keccak256(hex(4)): value of string `and knowing the name of somethin`
+Slot keccak256(hex(4)+1): value of string `g`
 ```
