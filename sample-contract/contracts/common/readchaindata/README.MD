@@ -22,9 +22,9 @@ Struct {} will create new slot
 
 Fixed size array will create new slot
 
-Dynamic array will create new slot, slot stores length of array, value of item stores in other location
+Dynamic array will create new slot `p`, slot stores length of array, value of item stores in other location start from `keccak256(p)`.
 
-Mapping will crete one new slot, value stores in other location
+Mapping will create one new slot `p`, value stores in `keccak256(k + p)`. `k` is the key of mapping and `k,p` in type of 64 hex chars (256bit)
 
 String will create new slot, this slot store length and content of string.
 - If string less than 32 bytes, content store in bit left -> right (higher order). Length stores in bit right -> left (lower order) with value `length*2` (means number of hex character)
@@ -32,10 +32,9 @@ String will create new slot, this slot store length and content of string.
 
 `constant` not store in storage
 
-byteN is fixed size arrays
+`byteN` (ex: byte8, byte32 ...) is fixed size arrays
 
-bytes is dynamic arrays
-
+`bytes` is dynamic arrays
 
 
 `EVM` processes each block of 32 bytes each calculation, so if component less than 32 bytes, EVM need a step to down size from 
@@ -147,9 +146,9 @@ contract StorageTest {
 
 ```text
 ... 
-Slot 7: f 
-Slot keccak256(hex(162) + hex(7)): f[162]
-Slot keccak256(hex(789) + hex(7)): f[789]
+Slot 7: f but not store any data
+Slot keccak256(hex(162) + hex(7)): 13
+Slot keccak256(hex(789) + hex(7)): 543
 ```
 
 **Example 5**
@@ -164,7 +163,7 @@ contract StorageTest {
 }
 ```
 
-...
+```solidity
 Slot 4: because f.length > 32, value is `length * 2 + 1 = 67`
 Slot keccak256(hex(4)): value of string `and knowing the name of somethin`
 Slot keccak256(hex(4)+1): value of string `g`
