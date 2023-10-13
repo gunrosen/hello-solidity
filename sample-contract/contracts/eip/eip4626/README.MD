@@ -13,6 +13,6 @@ stETH then
 + Lending: Anchor, AAVE
 + Use in Aggregation: Harvest Finance
 
-So we have many yield-bearing token in a single protocol. Rewrite, maintain and audi spend much time and cost
+So we have many yield-bearing token in a single protocol. Rewrite, maintain and audit spend much time and cost
 
 ERC 4626 applied in Fei Protocol
