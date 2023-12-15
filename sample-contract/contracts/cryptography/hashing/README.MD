@@ -2,7 +2,7 @@
 
 #### SHA256 
 
-![sha256](https://github.com/gunrosen/hello-solidity/tree/main/sample-contract/images/sha256.png)
+![sha256](../../../images/sha256.png)
 
 Create wallet address
 
